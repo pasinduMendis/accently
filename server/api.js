@@ -90,9 +90,11 @@ app.post("/charge", async (req, res) => {
     },
     function (err, charge) {
       if (charge) {
+        console.log("Success: " + charge);
         res.redirect("/thank-you-early-access");
       }
       if (err) {
+        console.log("Error: " + err);
         res.redirect("/early-access");
       }
     }
