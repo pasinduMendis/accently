@@ -51,7 +51,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -107,10 +107,10 @@
             <div class="div-block-49 abc new">
               <div class="text-block-31">Payment Information</div>
               <div class="form-block w-form">
-                <form id="payment-form" name="email-form" data-name="Email Form" method="get"><label for="name-2"
-                    class="field-label">Name*</label><input type="text" class="text-field w-input" maxlength="256"
-                    name="name" data-name="name" placeholder="Enter your full name" id="name-2" required=""><label
-                    for="email-3" class="field-label">Email Address*</label><input type="email"
+                <form id="payment-form" name="email-form" data-name="Email Form" action="/submit" method="post"><label
+                    for="name-2" class="field-label">Name*</label><input type="text" class="text-field w-input"
+                    maxlength="256" name="name" data-name="name" placeholder="Enter your full name" id="name-2"
+                    required=""><label for="email-3" class="field-label">Email Address*</label><input type="email"
                     class="text-field w-input" maxlength="256" name="email" data-name="email"
                     placeholder="Enter your email address" id="email-3" required=""><label for="email-2"
                     class="field-label">Card Details*</label>
