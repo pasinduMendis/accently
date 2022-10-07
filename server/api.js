@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const serverless = require("serverless-http");
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const mongoose = require("mongoose");
 require("./customFunctions/userModel");
 const User = mongoose.model("users");
@@ -65,14 +66,14 @@ router.post("*/server-side-tracking", async (req, res) => {
 router.post("*/submit", async (req, res) => {
   const existingUser = await User.findOne({ email: req.body.email });
 
-  if (!existingUser) {
+  /*if (!existingUser) {
     const shortIdVariable = shortid.generate();
     const user = await new User({
       email: req.body.email,
       referralId: shortIdVariable,
       numberOfReferrals: 0
     }).save();
-  }
+  }*/
   res.redirect("/early-access");
 });
 
