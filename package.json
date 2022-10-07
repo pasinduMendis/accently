@@ -1,0 +1,35 @@
+{
+  "name": "project-bump",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "facebook-nodejs-business-sdk": "^11.0.0",
+    "mongoose": "^5.9.1",
+    "netlify-cms": "^2.10.164",
+    "netlify-lambda": "^2.0.7",
+    "prettier": "^2.3.0",
+    "request-ip": "^2.1.3",
+    "serverless-http": "^2.7.0",
+    "shortid": "^2.2.15"
+  },
+  "scripts": {
+    "dev": "nodemon server-off-netlify/api.js",
+    "build": "./node_modules/.bin/netlify-lambda build server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://alex-munayyer:EasyFebrezey1234@github.com/alex-munayyer/Bump.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-munayyer/Bump/issues"
+  },
+  "homepage": "https://github.com/alex-munayyer/Bump#readme"
+}
