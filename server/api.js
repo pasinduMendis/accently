@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URI);
 const app = express();
 
 const access_token = process.env.FACEBOOK_ACCESS_TOKEN;
-const pixel_id = 'process.env.FACEBOOK_PIXEL_ID';
+const pixel_id = process.env.FACEBOOK_PIXEL_ID;
 const api = bizSdk.FacebookAdsApi.init(access_token);
 
 app.use(bodyParser.json());
