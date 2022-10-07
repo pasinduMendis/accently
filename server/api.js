@@ -21,8 +21,8 @@ mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 
-const access_token = 'EABmbwDokfFkBADVrXJZCZAXZBZCHK8ISBzfng7j4SopX34oJyhBKcFZCog76gVdMGJ4xZBUEknSV0zloddssR5WKDIwoNKqWFYC6L2R10zAZCR53gASb0w0qyfXCbDH4polp3klP5wOFbXRnp9w13ZBX6NnZAVEgXQ8sKV6CyjZBEl9i1jIVOZA722w'; //Change this
-const pixel_id = '491730835753732'; //Change this
+const access_token = process.env.FACEBOOK_ACCESS_TOKEN;
+const pixel_id = 'process.env.FACEBOOK_PIXEL_ID';
 const api = bizSdk.FacebookAdsApi.init(access_token);
 
 app.use(bodyParser.json());
