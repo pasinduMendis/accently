@@ -40,6 +40,10 @@ router.post("*/server-side-tracking", async (req, res) => {
     .setClientIpAddress(req.clientIp)
     .setClientUserAgent(req.headers['user-agent'])
 
+  console.log('Event Name: ', req.body.eventName);
+  console.log('Event URL: ', req.body.eventUrl);
+  console.log('Event ID: ', req.body.eventId);
+
   const serverEvent = (new ServerEvent())
     .setEventName(req.body.eventName)
     .setEventTime(current_timestamp)
