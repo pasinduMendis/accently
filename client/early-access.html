@@ -268,10 +268,14 @@
     window.onload = serverSideTracking("Early Access Page View", window.location.href, "4");
 
     var eventFive = document.getElementById("eventFive");
-    eventFive.addEventListener("click", serverSideTracking("Early Access Page Get Early Access Button Click", window.location.href, "5"));
+    eventFive.addEventListener("click", function () {
+      serverSideTracking("Early Access Page Get Early Access Button Click", window.location.href, "5")
+    });
 
     var eventSix = document.getElementById("eventSix");
-    eventSix.addEventListener("click", serverSideTracking("Early Access Page Submit Button Click", window.location.href, "6"));      
+    eventSix.addEventListener("click", function () {
+      serverSideTracking("Early Access Page Submit Button Click", window.location.href, "6")
+    });      
   </script>
   <script>
     var stripe = Stripe('pk_test_51LqNwNCOIV1QF3sYQOKTczgm9n240JeU0aYKNjJjuody4NpEz1mAou3TE9H6dSkRPWvyWhMfCZiVgOTttMYGecgA00psd6IjFQ');
