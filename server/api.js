@@ -9,13 +9,6 @@ const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
 const axios = require('axios');
-const bizSdk = require('facebook-nodejs-business-sdk');
-const Content = bizSdk.Content;
-const CustomData = bizSdk.CustomData;
-const DeliveryCategory = bizSdk.DeliveryCategory;
-const EventRequest = bizSdk.EventRequest;
-const UserData = bizSdk.UserData;
-const ServerEvent = bizSdk.ServerEvent;
 const requestIp = require('request-ip');
 
 mongoose.connect(process.env.MONGO_URI);
@@ -24,7 +17,6 @@ const app = express();
 
 const access_token = process.env.FACEBOOK_ACCESS_TOKEN;
 const pixel_id = process.env.FACEBOOK_PIXEL_ID;
-const api = bizSdk.FacebookAdsApi.init(access_token);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -36,6 +28,7 @@ router.post("*/server-side-tracking", async (req, res) => {
 
   let current_timestamp = Math.floor(new Date() / 1000);
 
+  console.log("1");
   const serverSideTracking = await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
     data: [
       {
@@ -51,6 +44,7 @@ router.post("*/server-side-tracking", async (req, res) => {
       }
     ]
   });
+  console.log("2");
 })
 
 //Email submission endpoint
