@@ -34,37 +34,23 @@ app.use(requestIp.mw())
 //Facebook Server Side Tracking Script
 router.post("*/server-side-tracking", async (req, res) => {
 
-  /*let current_timestamp = Math.floor(new Date() / 1000);
+  let current_timestamp = Math.floor(new Date() / 1000);
 
-  const userData = (new UserData())
-    .setClientIpAddress(req.clientIp)
-    .setClientUserAgent(req.headers['user-agent'])
-
-  //console.log('Event Name: ', req.body.eventName);
-  //console.log('Event URL: ', req.body.eventUrl);
-  //console.log('Event ID: ', req.body.eventId);
-
-  const serverEvent = (new ServerEvent())
-    .setEventName(req.body.eventName)
-    .setEventTime(current_timestamp)
-    .setUserData(userData)
-    .setEventSourceUrl(req.body.eventUrl)
-    .setActionSource('website')
-    .setEventId(req.body.eventId)
-    .settest_event_code("TEST96764");
-
-  const eventsData = [serverEvent];
-  const eventRequest = (new EventRequest(access_token, pixel_id))
-    .setEvents(eventsData);
-
-  eventRequest.execute().then(
-    response => {
-      console.log('Response: ', response);
-    },
-    err => {
-      console.error('Error: ', err);
-    }
-  );*/
+  const serverSideTracking = await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
+    data: [
+      {
+        event_name: req.body.eventName,
+        event_time: current_timestamp,
+        action_source: "website",
+        event_id: req.body.eventId,
+        event_source_url: req.body.eventUrl,
+        user_data: {
+          client_ip_address: req.clientIp,
+          client_user_agent: req.headers['user-agent']
+        }
+      }
+    ]
+  });
 })
 
 //Email submission endpoint
