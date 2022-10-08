@@ -51,7 +51,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
       n.queue = []; t = b.createElement(e); t.async = !0;
@@ -193,9 +193,7 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script>
     var eventEight = document.getElementById("eventEight");
-    eventEight.addEventListener("click", function () {
-      fbq('trackCustom', 'Thank You Page Join Private Facebook Group Button Click', { eventID: '8' });
-    });
+    eventEight.addEventListener("click", fbq('trackCustom', 'Thank You Page Join Private Facebook Group Button Click', { eventID: '8' }));
   </script>
   <script>
     //Server Side Tracking Function

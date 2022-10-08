@@ -99,10 +99,10 @@
         <div class="div-block-443">
           <h1 class="heading-178">Enter Your Email</h1>
           <div class="form-block-3 w-form">
-            <form id="email-form" name="email-form" data-name="Email Form" action="/submit" method="post"
+            <form id="eventThree1" name="email-form" data-name="Email Form" action="/submit" method="post"
               class="form-2"><input type="email" class="text-field-3 w-input" maxlength="256" name="Email-2"
                 data-name="Email 2" placeholder="johndoe@gmail.com" id="Email-2" required=""><input type="submit"
-                id="eventThree2" value="Get Early Access" data-wait="Please wait..." class="button popup w-button">
+                value="Get Early Access" data-wait="Please wait..." class="button popup w-button">
             </form>
             <div class="w-form-done">
               <div>Thank you! Your submission has been received!</div>
@@ -139,10 +139,10 @@
               in real-time to match the accent of the person you are talking to</p>
             <div class="div-block-6">
               <div class="form-block-13 w-form">
-                <form id="email-form" name="email-form" data-name="Email Form" action="/submit" method="post"
+                <form id="eventThree2" name="email-form" data-name="Email Form" action="/submit" method="post"
                   class="form-3"><input type="email" class="text-field-12 w-input" maxlength="256" name="email"
                     data-name="Email" placeholder="Enter your email" id="email" required=""><input type="submit"
-                    id="eventThree1" value="Submit" data-wait="Please wait..." class="submit-button-7 w-button"></form>
+                    value="Submit" data-wait="Please wait..." class="submit-button-7 w-button"></form>
                 <div class="w-form-done">
                   <div>Thank you! Your submission has been received!</div>
                 </div>
@@ -516,21 +516,16 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script>
     var eventTwo1 = document.getElementById("eventTwo1");
-    eventTwo1.addEventListener("click", function () {
-      fbq('trackCustom', 'Index Page Get Early Access Button Click', { eventID: '2' });
-    });
+    eventTwo1.addEventListener("click", fbq('trackCustom', 'Index Page Get Early Access Button Click', { eventID: '2' }));
+
     var eventTwo2 = document.getElementById("eventTwo2");
-    eventTwo2.addEventListener("click", function () {
-      fbq('trackCustom', 'Index Page Get Early Access Button Click', { eventID: '2' });
-    });
-    var eventThree1 = document.getElementById("eventThree1");
-    eventThree1.addEventListener("click", function () {
-      fbq('trackCustom', 'Index Page Submit Button Click', { eventID: '3' });
-    });
-    var eventThree2 = document.getElementById("eventThree2");
-    eventThree2.addEventListener("click", function () {
-      fbq('trackCustom', 'Index Page Submit Button Click', { eventID: '3' });
-    });
+    eventTwo2.addEventListener("click", fbq('trackCustom', 'Index Page Get Early Access Button Click', { eventID: '2' }));
+
+    var eventThree1 = document.getElementById('eventThree1');
+    eventThree1.addEventListener('submit', fbq('trackCustom', 'Index Page Submit Button Click', { eventID: '3' }));
+
+    var eventThree2 = document.getElementById('eventThree2');
+    eventThree2.addEventListener('submit', fbq('trackCustom', 'Index Page Submit Button Click', { eventID: '3' }));
   </script>
   <script>
     //Server Side Tracking Function
@@ -547,14 +542,18 @@
     }
     //Index Page Events
     window.onload = serverSideTracking("Index Page View", window.location.href, "1");
+
     var eventTwo1 = document.getElementById("eventTwo1");
     eventTwo1.addEventListener("click", serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2"));
+
     var eventTwo2 = document.getElementById("eventTwo2");
     eventTwo2.addEventListener("click", serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2"));
+
     var eventThree1 = document.getElementById("eventThree1");
-    eventThree1.addEventListener("click", serverSideTracking("Index Page Submit Button Click", window.location.href, "3"));
+    eventThree1.addEventListener("submit", serverSideTracking("Index Page Submit Button Click", window.location.href, "3"));
+
     var eventThree2 = document.getElementById("eventThree2");
-    eventThree2.addEventListener("click", serverSideTracking("Index Page Submit Button Click", window.location.href, "3"));       
+    eventThree2.addEventListener("submit", serverSideTracking("Index Page Submit Button Click", window.location.href, "3"));       
   </script>
 </body>
 
