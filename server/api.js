@@ -30,7 +30,7 @@ router.post("*/server-side-tracking", async (req, res) => {
 
   try {
     console.log("1");
-    const serverSideTracking = await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
+    await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
       data: [
         {
           event_name: req.body.eventName,
@@ -40,7 +40,7 @@ router.post("*/server-side-tracking", async (req, res) => {
           event_source_url: req.body.eventUrl,
           user_data: {
             client_ip_address: req.clientIp,
-            client_user_agent: req.headers['user-agent']
+            //client_user_agent: req.headers['user-agent']
           }
         }
       ]
@@ -50,7 +50,7 @@ router.post("*/server-side-tracking", async (req, res) => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: serverSideTracking
+        message: "Success"
       })
     };
 
