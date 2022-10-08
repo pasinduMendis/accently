@@ -29,7 +29,7 @@ router.post("*/server-side-tracking", async (req, res) => {
   let current_timestamp = Math.floor(new Date() / 1000);
 
   try {
-
+    console.log("1");
     const serverSideTracking = await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
       data: [
         {
@@ -45,6 +45,7 @@ router.post("*/server-side-tracking", async (req, res) => {
         }
       ]
     });
+    console.log("2");
 
     return {
       statusCode: 200,
@@ -55,6 +56,8 @@ router.post("*/server-side-tracking", async (req, res) => {
 
   } catch (err) {
 
+    console.log("3");
+    console.log("Error: " + err);
     return {
       statusCode: 400,
       body: JSON.stringify({
