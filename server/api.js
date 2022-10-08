@@ -40,9 +40,9 @@ router.post("*/server-side-tracking", async (req, res) => {
     .setClientIpAddress(req.clientIp)
     .setClientUserAgent(req.headers['user-agent'])
 
-  console.log('Event Name: ', req.body.eventName);
-  console.log('Event URL: ', req.body.eventUrl);
-  console.log('Event ID: ', req.body.eventId);
+  //console.log('Event Name: ', req.body.eventName);
+  //console.log('Event URL: ', req.body.eventUrl);
+  //console.log('Event ID: ', req.body.eventId);
 
   const serverEvent = (new ServerEvent())
     .setEventName(req.body.eventName)
@@ -50,7 +50,8 @@ router.post("*/server-side-tracking", async (req, res) => {
     .setUserData(userData)
     .setEventSourceUrl(req.body.eventUrl)
     .setActionSource('website')
-    .setEventId(req.body.eventId);
+    .setEventId(req.body.eventId)
+    .settest_event_code("TEST96764");
 
   const eventsData = [serverEvent];
   const eventRequest = (new EventRequest(access_token, pixel_id))
