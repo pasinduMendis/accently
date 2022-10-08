@@ -34,7 +34,7 @@ app.use(requestIp.mw())
 //Facebook Server Side Tracking Script
 router.post("*/server-side-tracking", async (req, res) => {
 
-  let current_timestamp = Math.floor(new Date() / 1000);
+  /*let current_timestamp = Math.floor(new Date() / 1000);
 
   const userData = (new UserData())
     .setClientIpAddress(req.clientIp)
@@ -64,7 +64,7 @@ router.post("*/server-side-tracking", async (req, res) => {
     err => {
       console.error('Error: ', err);
     }
-  );
+  );*/
 })
 
 //Email submission endpoint
