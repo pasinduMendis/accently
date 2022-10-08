@@ -193,7 +193,9 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script>
     var eventEight = document.getElementById("eventEight");
-    eventEight.addEventListener("click", fbq('trackCustom', 'Thank You Page Join Private Facebook Group Button Click', { eventID: '8' }));
+    eventEight.addEventListener("click", function () {
+      fbq('trackCustom', 'Thank You Page Join Private Facebook Group Button Click', { eventID: '8' })
+    });
   </script>
   <script>
     //Server Side Tracking Function

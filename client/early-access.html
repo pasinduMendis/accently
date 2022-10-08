@@ -242,10 +242,14 @@
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script>
     var eventFive = document.getElementById("eventFive");
-    eventFive.addEventListener("click", fbq('trackCustom', 'Early Access Page Get Early Access Button Click', { eventID: '5' }));
+    eventFive.addEventListener("click", function () {
+      fbq('trackCustom', 'Early Access Page Get Early Access Button Click', { eventID: '5' });
+    });
 
     var eventSix = document.getElementById("eventSix");
-    eventSix.addEventListener("click", fbq('trackCustom', 'Early Access Page Submit Button Click', { eventID: '6' }));
+    eventSix.addEventListener("click", function () {
+      fbq('trackCustom', 'Early Access Page Submit Button Click', { eventID: '6' });
+    });
   </script>
   <script>
     //Server Side Tracking Function
