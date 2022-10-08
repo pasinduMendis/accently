@@ -30,6 +30,13 @@ router.post("*/server-side-tracking", async (req, res) => {
 
   try {
     console.log("1");
+    console.log("Event Name" + req.body.eventName);
+    console.log("Event Time" + current_timestamp);
+    console.log("Event ID" + req.body.eventId);
+    console.log("Event URL" + req.body.eventUrl);
+    console.log("Event IP" + req.clientIp);
+    console.log("Event IP" + req.headers['user-agent']);
+
     await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
       data: [
         {
