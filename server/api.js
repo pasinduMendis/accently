@@ -66,19 +66,19 @@ router.post("*/server-side-tracking", async (req, res) => {
 router.post("*/submit", async (req, res) => {
   const existingUser = await User.findOne({ email: req.body.email });
 
-  /*if (!existingUser) {
+  if (!existingUser) {
     const shortIdVariable = shortid.generate();
     const user = await new User({
       email: req.body.email,
       referralId: shortIdVariable,
       numberOfReferrals: 0
     }).save();
-  }*/
+  }
   res.redirect("/early-access");
 });
 
 //Stripe Payment Endpoint
-app.post("/charge", async (req, res) => {
+app.post("*/charge", async (req, res) => {
   const token = req.body.stripeToken;
 
   const charge = await stripe.charges.create(
