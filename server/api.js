@@ -28,30 +28,41 @@ router.post("*/server-side-tracking", async (req, res) => {
 
   let current_timestamp = Math.floor(new Date() / 1000);
 
-  console.log("1");
-  const serverSideTracking = await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
-    data: [
-      {
-        event_name: req.body.eventName,
-        event_time: current_timestamp,
-        action_source: "website",
-        event_id: req.body.eventId,
-        event_source_url: req.body.eventUrl,
-        user_data: {
-          client_ip_address: req.clientIp,
-          client_user_agent: req.headers['user-agent']
+  try {
+
+    const serverSideTracking = await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
+      data: [
+        {
+          event_name: req.body.eventName,
+          event_time: current_timestamp,
+          action_source: "website",
+          event_id: req.body.eventId,
+          event_source_url: req.body.eventUrl,
+          user_data: {
+            client_ip_address: req.clientIp,
+            client_user_agent: req.headers['user-agent']
+          }
         }
-      }
-    ]
-  });
-  console.log("2");
-  console.log("Event: " + JSON.stringify(serverSideTracking));
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: "Success",
-    })
-  };
+      ]
+    });
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        message: serverSideTracking
+      })
+    };
+
+  } catch (err) {
+
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: err
+      })
+    };
+
+  }
 })
 
 //Email submission endpoint
