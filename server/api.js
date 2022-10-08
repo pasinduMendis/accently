@@ -46,6 +46,12 @@ router.post("*/server-side-tracking", async (req, res) => {
   });
   console.log("2");
   console.log("Event: " + serverSideTracking);
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: "Success",
+    })
+  };
 })
 
 //Email submission endpoint
