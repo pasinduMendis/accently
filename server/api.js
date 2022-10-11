@@ -29,13 +29,13 @@ router.post("/server-side-tracking", async (req, res) => {
   try {
   let current_timestamp = Math.floor(new Date() / 1000);
 
-    console.log(req);
+    /* console.log(req);
     console.log("Event Name" + req.body.eventName);
     console.log("Event Time" + current_timestamp);
     console.log("Event ID" + req.body.eventId);
     console.log("Event URL" + req.body.eventUrl);
     console.log("Event IP" + req.clientIp);
-    console.log("Event IP" + req.headers['user-agent']);
+    console.log("Event IP" + req.headers['user-agent']); */
 /* 
     await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
       data: [
@@ -53,7 +53,7 @@ router.post("/server-side-tracking", async (req, res) => {
       ]
     }); */
     console.log("2");
-    res.json({"done":req})
+    res.json({"done":current_timestamp})
     
     return {
       statusCode: 200,
