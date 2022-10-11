@@ -545,7 +545,7 @@
   <script>
     //Server Side Tracking Function
     function serverSideTracking(eventName, eventUrl, eventId) {
-      fetch('/functions/api/server-side-tracking', {
+      fetch('/.netlify/functions/api/server-side-tracking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
