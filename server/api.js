@@ -24,13 +24,8 @@ app.use(cookieParser());
 app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
-router.post("*/", async (req, res) => {
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      message: "Success"
-    })
-  };
+router.get("/", async (req, res) => {
+  res.send("done")
 })
 router.post("*/server-side-tracking", async (req, res) => {
 
@@ -122,6 +117,6 @@ app.post("*/charge", async (req, res) => {
   );
 });
 
-app.use("/", router);
+app.use("/test", router);
 
 module.exports.handler = serverless(app);
