@@ -91,14 +91,15 @@ router.post("*/submit", async (req, res) => {
 });
 
 //Stripe Payment Endpoint
-router.get("/test", async (req, res) => {
+router.get("/", async (req, res) => {
+  res.json("abc")
   return {
     statusCode: 400,
     body: JSON.stringify({
       message: "msg"
     })
   };
-  res.json("abc")
+  
 })
 app.post("*/charge", async (req, res) => {
   const token = req.body.stripeToken;
