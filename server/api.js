@@ -26,9 +26,9 @@ app.use(requestIp.mw())
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
  
-  try {
+  
   /* let current_timestamp = Math.floor(new Date() / 1000); */
-  let current_timestamp="";
+  var current_timestamp="aa";
 
     /* console.log(req);
     console.log("Event Name" + req.body.eventName);
@@ -63,18 +63,6 @@ router.post("/server-side-tracking", async (req, res) => {
       })
     };
 
-  } catch (err) {
-    res.json({"err":err})
-    console.log("3");
-    console.log("Error: " + err);
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        message: err
-      })
-    };
-
-  }
 })
 
 //Email submission endpoint
