@@ -28,7 +28,7 @@ router.post("/server-side-tracking", async (req, res) => {
  
   
   /* let current_timestamp = Math.floor(new Date() / 1000); */
-  var current_timestamp="aa";
+  let current_timestamp="aa";
 
     /* console.log(req);
     console.log("Event Name" + req.body.eventName);
