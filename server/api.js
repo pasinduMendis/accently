@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 const axios = require('axios');
 const requestIp = require('request-ip');
 
-//mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 
@@ -25,10 +25,10 @@ app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
-  res.json("done")
+ 
+  try {
   let current_timestamp = Math.floor(new Date() / 1000);
 
-  /* try {
     console.log("1");
     console.log("Event Name" + req.body.eventName);
     console.log("Event Time" + current_timestamp);
@@ -53,7 +53,8 @@ router.post("/server-side-tracking", async (req, res) => {
       ]
     });
     console.log("2");
-
+    res.json("done")
+    
     return {
       statusCode: 200,
       body: JSON.stringify({
@@ -62,7 +63,7 @@ router.post("/server-side-tracking", async (req, res) => {
     };
 
   } catch (err) {
-
+    res.json(err)
     console.log("3");
     console.log("Error: " + err);
     return {
@@ -72,7 +73,7 @@ router.post("/server-side-tracking", async (req, res) => {
       })
     };
 
-  } */
+  }
 })
 
 //Email submission endpoint
@@ -124,6 +125,6 @@ app.post("*/charge", async (req, res) => {
   );
 });
 
-app.use("/", router);
+app.use("/.netlify/functions/api", router);
 
 module.exports.handler = serverless(app);
