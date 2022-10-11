@@ -26,15 +26,14 @@ app.use(requestIp.mw())
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
  
-  try {
   /* let current_timestamp = Math.floor(new Date() / 1000); */
-  var current_timestamp="aa";
+  let current_timestamp="test";
 
     console.log(req);
-    console.log("Event Name" + req.body?.eventName);
+    console.log("Event Name" + req.body.eventName);
     console.log("Event Time" + current_timestamp);
-    console.log("Event ID" + req.body?.eventId);
-    console.log("Event URL" + req.body?.eventUrl);
+    console.log("Event ID" + req.body.eventId);
+    console.log("Event URL" + req.body.eventUrl);
     console.log("Event IP" + req.clientIp);
     console.log("Event IP" + req.headers['user-agent']);
 
@@ -63,18 +62,7 @@ router.post("/server-side-tracking", async (req, res) => {
       })
     };
 
-  } catch (err) {
-    res.json({"err":err})
-    console.log("3");
-    console.log("Error: " + err);
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        message: err
-      })
-    };
-
-  }
+ 
 })
 
 //Email submission endpoint
