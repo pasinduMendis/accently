@@ -27,7 +27,7 @@ app.use(requestIp.mw())
 router.post("/server-side-tracking", async (req, res) => {
  
   /* let current_timestamp = Math.floor(new Date() / 1000); */
-  let current_timestamp="test";
+  var current_timestamp="test";
 
     console.log(req);
     console.log("Event Name" + req.body.eventName);
