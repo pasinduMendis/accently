@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 const axios = require('axios');
 const requestIp = require('request-ip');
 
-mongoose.connect(process.env.MONGO_URI);
+//mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 
@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
-router.post("*/server-side-tracking", async (req, res) => {
+router.post("/server-side-tracking", async (req, res) => {
 
   let current_timestamp = Math.floor(new Date() / 1000);
 
@@ -91,6 +91,15 @@ router.post("*/submit", async (req, res) => {
 });
 
 //Stripe Payment Endpoint
+router.get("/test", async (req, res) => {
+  return {
+    statusCode: 400,
+    body: JSON.stringify({
+      message: "msg"
+    })
+  };
+  res.json("abc")
+})
 app.post("*/charge", async (req, res) => {
   const token = req.body.stripeToken;
 
