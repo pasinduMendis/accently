@@ -24,6 +24,14 @@ app.use(cookieParser());
 app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
+router.post("*/", async (req, res) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: "Success"
+    })
+  };
+})
 router.post("*/server-side-tracking", async (req, res) => {
 
   let current_timestamp = Math.floor(new Date() / 1000);
