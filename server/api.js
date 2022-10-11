@@ -37,7 +37,7 @@ router.post("/server-side-tracking", async (req, res) => {
     console.log("Event IP" + req.clientIp);
     console.log("Event IP" + req.headers['user-agent']); */
 
-    /* await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
+    await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
       data: [
         {
           "event_name": req.body.eventName?req.body.eventNamez:"",
@@ -51,7 +51,7 @@ router.post("/server-side-tracking", async (req, res) => {
           }
         }
       ]
-    }); */
+    });
     console.log("2");
     res.json({"done":current_timestamp})
     
