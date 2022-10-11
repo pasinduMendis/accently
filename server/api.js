@@ -11,7 +11,7 @@ const cookieParser = require("cookie-parser");
 const axios = require('axios');
 const requestIp = require('request-ip');
 
-mongoose.connect(process.env.MONGO_URI);
+//mongoose.connect(process.env.MONGO_URI);
 
 const app = express();
 
