@@ -29,7 +29,9 @@ app.use(requestIp.mw())
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
-  
+  res.json({
+    req:req
+  })
   let current_timestamp = Math.floor(new Date() / 1000);
   
   try {
