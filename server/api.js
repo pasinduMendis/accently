@@ -54,14 +54,8 @@ router.post("/server-side-tracking", async (req, res) => {
       }
     ]
 
-    res.json({
-      message: current_timestamp,
-      body:req.body,
-      response:data,
-    })
-
-    await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
-      
+    await axios.post(`https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBALZAfZBeyKn3O3LZAslWPeQ5kDQ7ua0RoKEj1FwDLIQE1v3ONCwn51m0Re8ZAhmUuxedAlLraZAtouxZCWCxLN5Wk2nGjJxvyO8OewS5hdkB1ZAmWIhLP8UpBGS5Rqevrwy7AkkXfZCTKFpehfk43R8Hor6AOyN5C2nOTpMn6UWC`, {
+      data:data
     }).then((response)=>{
         
   res.json({
