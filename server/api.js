@@ -30,7 +30,7 @@ app.use(requestIp.mw())
 router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
   res.json({
-    req:req
+    resdata:req.headers,
   })
   let current_timestamp = Math.floor(new Date() / 1000);
   
@@ -68,7 +68,6 @@ router.post("/server-side-tracking", async (req, res) => {
       res.json({
         err:err,
         //req:req,
-
       })
     })
 
