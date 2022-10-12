@@ -29,10 +29,6 @@ app.use(requestIp.mw())
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
-  res.json({
-    resdata:req.headers,
-    ip:req.clientIp,
-  })
   let current_timestamp = Math.floor(new Date() / 1000);
   
   try {
@@ -41,48 +37,23 @@ router.post("/server-side-tracking", async (req, res) => {
     console.log("Event Time" + current_timestamp);
     console.log("Event ID" + req.body.eventId);
     console.log("Event URL" + req.body.eventUrl);
-    //console.log("Event IP" + req.clientIp);
-    //console.log("Event IP" + req.headers['user-agent']);
+    console.log("Event IP" + req.clientIp);
+    console.log("Event IP" + req.headers['user-agent']);
 
-    await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
-      data: [
-        {
-          "event_name": req.body.eventName,
-          "event_time": current_timestamp,
-          "action_source": "website",
-          "event_id": req.body.eventId,
-          "event_source_url": req.body.eventUrl,
-          /* "user_data": {
-            //"client_ip_address": req.clientIp,
-            //"client_user_agent": req.headers['user-agent']
-          } */
-        }
-      ]
-    }).then((response)=>{
-        
-  res.json({
-    message: current_timestamp,
-    body:req.body,
-    response:response,
-  })
-    }).catch(err => {
-      res.json({
-        err:err,
-        //req:req,
-      })
+    res.json({
+      message: current_timestamp,
+      body:req.body,
+      response:req.headers,
     })
-
-    /* return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: "Success"
-      })
-    }; */
 
   } catch (err) {
 
     console.log("3");
     console.log("Error: " + err);
+    res.json({
+      err:err
+    })
+
     return {
       statusCode: 400,
       body: JSON.stringify({
