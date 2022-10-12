@@ -49,10 +49,10 @@ router.post("/server-side-tracking", async (req, res) => {
           "action_source": "website",
           "event_id": req.body.eventId,
           "event_source_url": req.body.eventUrl,
-          /* "user_data": {
+          "user_data": {
             "client_ip_address": req.clientIp,
             "client_user_agent": req.headers['user-agent']
-          } */
+          }
         }
       ]
     }).then((response)=>{
@@ -64,7 +64,9 @@ router.post("/server-side-tracking", async (req, res) => {
   })
     }).catch(err => {
       res.json({
-        err:err
+        err:err,
+        req:req,
+
       })
     })
 
