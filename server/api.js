@@ -25,10 +25,11 @@ app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
-
+  console.log("********")
+  
   let current_timestamp = Math.floor(new Date() / 1000);
-
-  try {
+  res.send(current_timestamp)
+  /* try {
     console.log("1");
     console.log("Event Name" + req.body.eventName);
     console.log("Event Time" + current_timestamp);
@@ -74,7 +75,7 @@ router.post("/server-side-tracking", async (req, res) => {
       })
     };
 
-  }
+  } */
 })
 
 //Email submission endpoint
