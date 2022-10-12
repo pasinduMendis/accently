@@ -50,8 +50,8 @@ router.post("/server-side-tracking", async (req, res) => {
           "event_id": req.body.eventId,
           "event_source_url": req.body.eventUrl,
           "user_data": {
-            "client_ip_address": req.clientIp,
-            "client_user_agent": req.headers['user-agent']
+            //"client_ip_address": req.clientIp,
+            //"client_user_agent": req.headers['user-agent']
           }
         }
       ]
