@@ -10,6 +10,7 @@ const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
 const axios = require('axios');
 const requestIp = require('request-ip');
+const { json } = require("body-parser");
 
 mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority');
 
@@ -29,7 +30,10 @@ router.post("/server-side-tracking", async (req, res) => {
   
   let current_timestamp = Math.floor(new Date() / 1000);
   
-  res.json(current_timestamp,req)
+  res.json(JSON.stringify({
+    message: current_timestamp,
+    body:req.body,
+  }))
   /* try {
     console.log("1");
     console.log("Event Name" + req.body.eventName);
