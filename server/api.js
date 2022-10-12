@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const serverless = require("serverless-http");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require("stripe")('sk_test_51LqNwNCOIV1QF3sYrz9r3VQrG7QdM1frC4edqFSGyhiQoF2A3Ao45QPjOvsNmSuPZZRQpzIhVJLVoArD6hbAAyqZ00jWJ2rxMH');
 const mongoose = require("mongoose");
 require("./customFunctions/userModel");
 const User = mongoose.model("users");
@@ -11,12 +11,12 @@ const cookieParser = require("cookie-parser");
 const axios = require('axios');
 const requestIp = require('request-ip');
 
-//mongoose.connect(process.env.MONGO_URI);
+mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority');
 
 const app = express();
 
-const access_token = process.env.FACEBOOK_ACCESS_TOKEN;
-const pixel_id = process.env.FACEBOOK_PIXEL_ID;
+const access_token = "EAAUlXa7VgRIBALIZBU5tQCZAZA4fScxl3ZAA5ASViClaksqBCx4kCeKqNQiEM2Q7OQZBKEEo9ZAD2HrXnuxJWZAt8gnnBUZC4uMTNsA6k5SA3egkCDxSygi6auvZBX07vptoTLbFPfLKCEEMrXxSZCPHsjDdxwwOPGsWeUVxS2HXrdZCkmJxGOg9dsZB";
+const pixel_id = '503294586998134';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -51,6 +51,8 @@ router.post("/server-side-tracking", async (req, res) => {
           }
         }
       ]
+    }).then((response)=>{
+        res.json(response.data)
     });
     console.log("2");
 
