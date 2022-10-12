@@ -28,24 +28,8 @@ router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
   
   let current_timestamp = Math.floor(new Date() / 1000);
-  await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
-      data: [
-        {
-          "event_name": req.body.eventName,
-          "event_time": current_timestamp,
-          "action_source": "website",
-          "event_id": req.body.eventId,
-          "event_source_url": req.body.eventUrl,
-          "user_data": {
-            "client_ip_address": req.clientIp,
-            "client_user_agent": req.headers['user-agent']
-          }
-        }
-      ]
-    }).then((response)=>{
-        res.json(response.data)
-    });
-  res.json(current_timestamp)
+  
+  res.json(current_timestamp,req)
   /* try {
     console.log("1");
     console.log("Event Name" + req.body.eventName);
