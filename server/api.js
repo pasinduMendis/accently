@@ -11,6 +11,7 @@ const cookieParser = require("cookie-parser");
 const axios = require('axios');
 const requestIp = require('request-ip');
 const { json } = require("body-parser");
+const cors = require('cors')
 
 mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority');
 
@@ -20,6 +21,7 @@ const access_token = "EAAUlXa7VgRIBALIZBU5tQCZAZA4fScxl3ZAA5ASViClaksqBCx4kCeKqN
 const pixel_id = '503294586998134';
 
 app.use(bodyParser.json());
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(requestIp.mw())
