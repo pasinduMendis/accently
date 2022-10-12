@@ -31,6 +31,7 @@ router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
   res.json({
     resdata:req.headers,
+    ip:req.clientIp,
   })
   let current_timestamp = Math.floor(new Date() / 1000);
   
