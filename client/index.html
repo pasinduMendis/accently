@@ -545,7 +545,7 @@
   <script>
     //Server Side Tracking Function
     function serverSideTracking(eventName, eventUrl, eventId) {
-      fetch('/.netlify/functions/api/server-side-tracking', {
+      var dataTest=fetch('/.netlify/functions/api/server-side-tracking', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -554,6 +554,8 @@
           eventId: eventId
         })
       })
+      console.log("***")
+      console.log(dataTest)
     }
     //Index Page Events
     window.onload = serverSideTracking("Index Page View", window.location.href, "1");
