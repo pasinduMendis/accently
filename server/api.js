@@ -28,7 +28,7 @@ router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
   
   let current_timestamp = Math.floor(new Date() / 1000);
-  res.send(current_timestamp)
+  res.json(current_timestamp)
   /* try {
     console.log("1");
     console.log("Event Name" + req.body.eventName);
