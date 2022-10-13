@@ -36,7 +36,7 @@ router.get("/server-side-tracking", async (req, res) => {
   ).then((response)=>{
         
   res.json({
-    response
+    response:"abc"
   })
     }).catch(err => {
       res.json({
