@@ -10,7 +10,6 @@ const cookieParser = require("cookie-parser");
 const axios=require('axios')
 const requestIp = require('request-ip');
 const cors = require('cors')
-const fetch=require('node-fetch')
 
 mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 
