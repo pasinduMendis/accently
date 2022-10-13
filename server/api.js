@@ -53,7 +53,7 @@ router.post("/server-side-tracking", async (req, res) => {
   res.json(response.data)
     }).catch(err => {
       console.log(err)
-      res.json(err)
+      res.json(err.message)
     })
   
 })
