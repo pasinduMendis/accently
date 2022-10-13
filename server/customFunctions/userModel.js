@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const { Schema } = mongoose;
 
-const userSchema = new Schema({
+const userSchema = mongoose.Schema({
     userId: String,
     email: String,
     referralId: String,
@@ -9,4 +8,4 @@ const userSchema = new Schema({
     referrals: [{ idOfReferral: String }],
 });
 
-mongoose.model('users', userSchema);
+module.exports = mongoose.model('Users', userSchema)

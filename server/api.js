@@ -3,17 +3,16 @@ const router = express.Router();
 const serverless = require("serverless-http");
 const stripe = require("stripe")('sk_test_51LqNwNCOIV1QF3sYrz9r3VQrG7QdM1frC4edqFSGyhiQoF2A3Ao45QPjOvsNmSuPZZRQpzIhVJLVoArD6hbAAyqZ00jWJ2rxMH');
 const mongoose = require("mongoose");
-require("./customFunctions/userModel");
-const User = mongoose.model("users");
+const User = require("./customFunctions/userModel");
 const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
-import axios from "axios";
+const axios=require('axios')
 const requestIp = require('request-ip');
 const { json } = require("body-parser");
 const cors = require('cors')
 
-mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
 
