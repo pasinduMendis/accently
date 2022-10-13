@@ -26,7 +26,6 @@ app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
-  console.log("********")
   let current_timestamp = Math.floor(new Date() / 1000);
   /* res.json({
     message: current_timestamp,
@@ -47,7 +46,7 @@ router.post("/server-side-tracking", async (req, res) => {
     ]
 }
 
-  await axios.post('https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBALGBRrMGZB6rt1GiqfxMUwc4hvkknb9BoTNK90ZAzmBphWE0fDob6BnAAX0yecDTpaxtgCOD5Hngi3zFpcyonu5X0mwhF3z86CKZApRp7B2ITEzz87evpvkJoDK7qpyaFWgDxCRDgUc0F6QGnnzmg9pRzV5jNsiBDPGUfjg',
+await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`,
   testData
   ).then((response)=>{
   res.json(response.data)

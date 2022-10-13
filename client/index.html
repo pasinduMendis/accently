@@ -556,7 +556,10 @@
      
     }
     //Index Page Events
-    window.onload = serverSideTracking("Index Page View", window.location.href, "1");
+    document.addEventListener("DOMContentLoaded", function(){
+      serverSideTracking("Index Page View", window.location.href, "1");
+});
+    //window.onload = serverSideTracking("Index Page View", window.location.href, "1");
     var eventTwo1 = document.getElementById("eventTwo1");
     eventTwo1.addEventListener("click", serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2"));
     var eventTwo2 = document.getElementById("eventTwo2");
