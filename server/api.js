@@ -32,15 +32,15 @@ router.post("/server-side-tracking", async (req, res) => {
   let current_timestamp = Math.floor(new Date() / 1000);
   
   try {
-    console.log("1");
+    /* console.log("1");
     console.log("Event Name" + req.body.eventName);
     console.log("Event Time" + current_timestamp);
     console.log("Event ID" + req.body.eventId);
     console.log("Event URL" + req.body.eventUrl);
     //console.log("Event IP" + req.clientIp);
-    //console.log("Event IP" + req.headers['user-agent']);
+    //console.log("Event IP" + req.headers['user-agent']); */
 
-    const data=[
+    /* const data=[
       {
         "event_name": req.body.eventName,
         "event_time": current_timestamp,
@@ -52,7 +52,7 @@ router.post("/server-side-tracking", async (req, res) => {
           "client_user_agent": req.headers['user-agent']
         } 
       }
-    ]
+    ] */
 
     await axios.post(`https://reqbin.com/sample/post/json`, 
     {
