@@ -7,9 +7,8 @@ const User = require("./customFunctions/userModel");
 const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
-const axios=require('axios')
+import axios from "axios";
 const requestIp = require('request-ip');
-const { json } = require("body-parser");
 const cors = require('cors')
 
 mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
@@ -29,38 +28,14 @@ app.use(requestIp.mw())
 router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
   let current_timestamp = Math.floor(new Date() / 1000);
-  
-  try {
-    /* console.log("1");
-    console.log("Event Name" + req.body.eventName);
-    console.log("Event Time" + current_timestamp);
-    console.log("Event ID" + req.body.eventId);
-    console.log("Event URL" + req.body.eventUrl);
-    //console.log("Event IP" + req.clientIp);
-    //console.log("Event IP" + req.headers['user-agent']); */
-
-    /* const data=[
-      {
-        "event_name": req.body.eventName,
-        "event_time": current_timestamp,
-        "action_source": "website",
-        "event_id": req.body.eventId,
-        "event_source_url": req.body.eventUrl,
-         "user_data": {
-          "client_ip_address": req.clientIp,
-          "client_user_agent": req.headers['user-agent']
-        } 
-      }
-    ] */
-
-    await axios.get(`https://hp-api.onrender.com/api/characters` 
+  await axios.get('https://hp-api.onrender.com/api/characters' 
     
   ).then((response)=>{
         
   res.json({
     message: current_timestamp,
     body:req.body,
-    response:response,
+    response:response.data,
   })
     }).catch(err => {
       res.json({
@@ -68,30 +43,7 @@ router.post("/server-side-tracking", async (req, res) => {
         //req:req,
       })
     })
-
-    /* return {
-      statusCode: 200,
-      body: JSON.stringify({
-        message: "Success"
-      })
-    }; */
-
-  } catch (err) {
-
-    console.log("3");
-    console.log("Error: " + err);
-    res.json({
-      err:err
-    })
-
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        message: err
-      })
-    };
-
-  }
+  
 })
 
 //Email submission endpoint
