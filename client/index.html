@@ -563,14 +563,21 @@
 });
     //window.onload = serverSideTracking("Index Page View", window.location.href, "1");
     var eventTwo1 = document.getElementById("eventTwo1");
-    //eventTwo1.addEventListener("mousedown", serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2"));
+    eventTwo1.addEventListener("click", function(){
+      console.log("testing")
+      serverSideTracking("Index Page Submit Button Click", window.location.href, "3")
+    });
     var eventTwo2 = document.getElementById("eventTwo2");
-    //eventTwo2.addEventListener("mousedown", serverSideTracking("Index Page Get Early Access Button Click", window.location.href, "2"));
+    eventTwo2.addEventListener("click", function(){
+      console.log("testing")
+      serverSideTracking("Index Page Submit Button Click", window.location.href, "3")
+    });
     var eventThree1 = document.getElementById("eventThree1");
     //eventThree1.addEventListener("mousedown", serverSideTracking("Index Page Submit Button Click", window.location.href, "3"));
     var eventThree2 = document.getElementById("eventThree2");
-    eventThree2.addEventListener("mousedown", function(){
+    eventThree2.addEventListener("click", function(){
       console.log("testing")
+      serverSideTracking("Index Page Submit Button Click", window.location.href, "3")
     });       
   </script>
 </body>
