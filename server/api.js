@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.
 
 const app = express();
 
-const access_token = "EAAUlXa7VgRIBALGBRrMGZB6rt1GiqfxMUwc4hvkknb9BoTNK90ZAzmBphWE0fDob6BnAAX0yecDTpaxtgCOD5Hngi3zFpcyonu5X0mwhF3z86CKZApRp7B2ITEzz87evpvkJoDK7qpyaFWgDxCRDgUc0F6QGnnzmg9pRzV5jNsiBDPGUfjg";
+const access_token = "EAAUlXa7VgRIBAIDt1C3ompVQg8U72V23wKsgYuXEDsIQw82s7cuR67W5XjNegLn5odJlJFNx3htoz4WpZBJWXIzm33loq9zsiO7L7E2Luq4AqElOkM2hpNZBvdd3UJ4mY527qT57G7pLU1ckbL58whIGpE71JTzCFJaDat6ewqVZAhUjIjh";
 const pixel_id = '503294586998134';
 
 app.use(bodyParser.json());
