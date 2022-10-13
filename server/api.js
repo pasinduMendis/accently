@@ -29,9 +29,6 @@ app.use(requestIp.mw());
 router.post("/server-side-tracking", async (req, res) => {
   
   let current_timestamp = Math.floor(new Date() / 1000);
-  /* res.json({
-    message: current_timestamp,
-  }) */
   const testData={
     data: [
       {
@@ -49,7 +46,14 @@ router.post("/server-side-tracking", async (req, res) => {
 }
 
 await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`,
-  testData
+  testData,{
+    'Accept-Encoding': 'gzip, deflate, br',
+    'User-Agent': req.headers['user-agent'],
+    'Content-Type': 'application/json',
+    'Accept': '*/*',
+    'X-Requested-With': 'XMLHttpRequest',
+    'Connection': 'keep-alive'
+}
   ).then((response)=>{
   res.json(response.data)
     }).catch(err => {
