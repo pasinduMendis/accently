@@ -546,7 +546,7 @@
   <script>
     //Server Side Tracking Function
     async function serverSideTracking(eventName, eventUrl, eventId) {
-      await axios.post('/.netlify/functions/api/server-side-tracking', {
+      await axios.post('https://flourishing-unicorn-817bf3.netlify.app/.netlify/functions/api/server-side-tracking', {
           eventName: eventName,
           eventUrl: eventUrl,
           eventId: eventId
