@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const axios=require('axios')
 const requestIp = require('request-ip');
 const cors = require('cors')
+const axiosCurl=require('axios-curl')
 
 mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -22,7 +23,8 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(requestIp.mw())
+app.use(requestIp.mw());
+axiosCurl(axios)
 
 //Facebook Server Side Tracking Script
 router.post("/server-side-tracking", async (req, res) => {
