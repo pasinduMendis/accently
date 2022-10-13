@@ -25,14 +25,13 @@ app.use(cookieParser());
 app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
-router.get("/server-side-tracking", async (req, res) => {
+router.post("/server-side-tracking", async (req, res) => {
   console.log("********")
   let current_timestamp = Math.floor(new Date() / 1000);
   /* res.json({
     message: current_timestamp,
   }) */
-  await axios.post('https://hp-api.onrender.com/api/characters', 
-    {}
+  await axios.get('https://hp-api.onrender.com/api/characters'
   ).then((response)=>{
         
   res.json(response.data[0])
