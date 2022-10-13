@@ -49,21 +49,15 @@ router.post("/server-side-tracking", async (req, res) => {
     ]
 }
 
-/* await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`,
+await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`,
   testData
   ).then((response)=>{
   res.json(response.data)
     }).catch(err => {
       console.log(err)
       res.json(err.message)
-    }) */
-    const response = await fetch(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`, {
-      method: 'post',
-      body: JSON.stringify(testData),
-      headers: {'Content-Type': 'application/json'}
-    });
-    const data = await response.json();
-    res.json(data)
+    })
+  
 })
 
 //Email submission endpoint
