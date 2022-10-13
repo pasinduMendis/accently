@@ -7,7 +7,7 @@ const User = require("./customFunctions/userModel");
 const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
-import axios from "axios";
+const axios=require(axios)
 const requestIp = require('request-ip');
 const cors = require('cors')
 
@@ -34,7 +34,6 @@ router.post("/server-side-tracking", async (req, res) => {
         
   res.json({
     message: current_timestamp,
-    body:req.body,
     response:response.data,
   })
     }).catch(err => {
