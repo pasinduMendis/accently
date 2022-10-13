@@ -28,9 +28,9 @@ app.use(requestIp.mw())
 router.get("/server-side-tracking", async (req, res) => {
   console.log("********")
   let current_timestamp = Math.floor(new Date() / 1000);
-  res.json({
+  /* res.json({
     message: current_timestamp,
-  })
+  }) */
   await axios.get('https://hp-api.onrender.com/api/characters' 
     
   ).then((response)=>{
