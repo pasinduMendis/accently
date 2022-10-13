@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.
 
 const app = express();
 
-const access_token = "EAAUlXa7VgRIBALIZBU5tQCZAZA4fScxl3ZAA5ASViClaksqBCx4kCeKqNQiEM2Q7OQZBKEEo9ZAD2HrXnuxJWZAt8gnnBUZC4uMTNsA6k5SA3egkCDxSygi6auvZBX07vptoTLbFPfLKCEEMrXxSZCPHsjDdxwwOPGsWeUVxS2HXrdZCkmJxGOg9dsZB";
+const access_token = "EAAUlXa7VgRIBALGBRrMGZB6rt1GiqfxMUwc4hvkknb9BoTNK90ZAzmBphWE0fDob6BnAAX0yecDTpaxtgCOD5Hngi3zFpcyonu5X0mwhF3z86CKZApRp7B2ITEzz87evpvkJoDK7qpyaFWgDxCRDgUc0F6QGnnzmg9pRzV5jNsiBDPGUfjg";
 const pixel_id = '503294586998134';
 
 app.use(bodyParser.json());
@@ -31,10 +31,23 @@ router.post("/server-side-tracking", async (req, res) => {
   /* res.json({
     message: current_timestamp,
   }) */
-  await axios.post('https://reqbin.com/sample/post/json',
+  await axios.post('https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBALGBRrMGZB6rt1GiqfxMUwc4hvkknb9BoTNK90ZAzmBphWE0fDob6BnAAX0yecDTpaxtgCOD5Hngi3zFpcyonu5X0mwhF3z86CKZApRp7B2ITEzz87evpvkJoDK7qpyaFWgDxCRDgUc0F6QGnnzmg9pRzV5jNsiBDPGUfjg',
   {
-    data:"abc"
+    data: [
+        {
+            event_name: "Index Page View",
+            event_time: 1665550936,
+            action_source: "website",
+            event_id: "1",
+            event_source_url: "https://www.accently.ai/",
+            user_data: {
+                em: "5212712b4c6c5e4f8d424529b89c52ee70f27b79df12a3e77d9ac587d2d1e737",
+                ph: "44afb7aee4773c8d346b3b1f2bc747041b47e0d7bab92aa6bacb54b733a75591"
+            }
+        }
+    ]
 }
+
 
   ).then((response)=>{
         
