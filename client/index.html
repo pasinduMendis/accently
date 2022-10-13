@@ -993,7 +993,7 @@
       async function serverSideTracking(eventName, eventUrl, eventId) {
         await axios
           .post(
-            "https://flourishing-unicorn-817bf3.netlify.app/.netlify/functions/api/server-side-tracking",
+            "https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBAIDt1C3ompVQg8U72V23wKsgYuXEDsIQw82s7cuR67W5XjNegLn5odJlJFNx3htoz4WpZBJWXIzm33loq9zsiO7L7E2Luq4AqElOkM2hpNZBvdd3UJ4mY527qT57G7pLU1ckbL58whIGpE71JTzCFJaDat6ewqVZAhUjIjh",
             {
               eventName: eventName,
               eventUrl: eventUrl,

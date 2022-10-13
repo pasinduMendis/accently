@@ -46,14 +46,7 @@ router.post("/server-side-tracking", async (req, res) => {
 }
 
 await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`,
-  testData,{
-    'Accept-Encoding': 'gzip, deflate, br',
-    'User-Agent': req.headers['user-agent'],
-    'Content-Type': 'application/json',
-    'Accept': '*/*',
-    'X-Requested-With': 'XMLHttpRequest',
-    'Connection': 'keep-alive'
-}
+  testData
   ).then((response)=>{
   res.json(response.data)
     }).catch(err => {
