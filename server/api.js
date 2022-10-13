@@ -31,7 +31,23 @@ router.post("/server-side-tracking", async (req, res) => {
   /* res.json({
     message: current_timestamp,
   }) */
-  await axios.get('https://hp-api.onrender.com/api/characters'
+  await axios.post('https://reqbin.com/sample/post/json',
+  {
+    "data": [
+        {
+            "event_name": "Index Page View",
+            "event_time": 1665550936,
+            "action_source": "website",
+            "event_id": "1",
+            "event_source_url": "https://www.accently.ai/",
+            "user_data": {
+                "em": "5212712b4c6c5e4f8d424529b89c52ee70f27b79df12a3e77d9ac587d2d1e737",
+                "ph": "44afb7aee4773c8d346b3b1f2bc747041b47e0d7bab92aa6bacb54b733a75591"
+            }
+        }
+    ]
+}
+
   ).then((response)=>{
         
   res.json(response.data)
