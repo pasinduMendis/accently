@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const axios=require('axios')
 const requestIp = require('request-ip');
 const cors = require('cors')
+const FormData = require('form-data');
 
 mongoose.connect('mongodb+srv://user-1:VDFbIjPJKt6oGydc@project-accently-develo.obbqzel.mongodb.net/users?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -45,17 +46,21 @@ router.post("/server-side-tracking", async (req, res) => {
     ]
 }
 
-await axios.post(`https://graph.facebook.com/v9.0/${pixel_id}/events?access_token=${access_token}`,
-  testData
-  ).then((response)=>{
-  res.json(response.data)
-    }).catch(err => {
-      console.log(err)
-      res.json(err.message)
-    })
-  
-})
+const form = new FormData();
+form.append('data', '[\n       {\n         "event_name": "Purchase",\n         "event_time": 1665680218,\n         "user_data": {\n           "em": [\n             "309a0a5c3e211326ae75ca18196d301a9bdbd1a882a4d2569511033da23f0abd"\n           ],\n           "ph": [\n             "254aa248acb47dd654ca3ea53f48c2c26d641d23d7e2e93a1ec56258df7674c4",\n             "6f4fcb9deaeadc8f9746ae76d97ce1239e98b404efe5da3ee0b7149740f89ad6"\n           ],\n           "client_ip_address": "123.123.123.123",\n           "client_user_agent": "$CLIENT_USER_AGENT",\n           "fbc": "fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890",\n           "fbp": "fb.1.1558571054389.1098115397"\n         },\n         "contents": [\n           {\n             "id": "product123",\n             "quantity": 1,\n             "delivery_category": "home_delivery"\n           }\n         ],\n         "custom_data": {\n           "currency": "usd",\n           "value": 123.45\n         },\n         "event_source_url": "http://jaspers-market.com/product/123",\n         "action_source": "website"\n       }\n     ]');
+form.append('access_token', access_token);
 
+const response = await axios.post(
+    'https://graph.facebook.com/v15.0/503294586998134/events',
+    form,
+    {
+        headers: {
+            ...form.getHeaders()
+        }
+    }
+);
+res.json(response)
+})
 //Email submission endpoint
 router.post("*/submit", async (req, res) => {
   const existingUser = await User.findOne({ email: req.body.email });
