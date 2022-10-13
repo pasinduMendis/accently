@@ -8,7 +8,7 @@ const User = mongoose.model("users");
 const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
-const axios = require('axios');
+import axios from "axios";
 const requestIp = require('request-ip');
 const { json } = require("body-parser");
 const cors = require('cors')
