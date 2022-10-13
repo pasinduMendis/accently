@@ -54,7 +54,7 @@ router.post("/server-side-tracking", async (req, res) => {
       }
     ]
 
-    await axios.post(`https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBALGBRrMGZB6rt1GiqfxMUwc4hvkknb9BoTNK90ZAzmBphWE0fDob6BnAAX0yecDTpaxtgCOD5Hngi3zFpcyonu5X0mwhF3z86CKZApRp7B2ITEzz87evpvkJoDK7qpyaFWgDxCRDgUc0F6QGnnzmg9pRzV5jNsiBDPGUfjg`, 
+    await axios.post(`https://reqbin.com/sample/post/json`, 
     {
       "data": [
           {
