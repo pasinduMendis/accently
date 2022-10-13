@@ -7,7 +7,7 @@ const User = require("./customFunctions/userModel");
 const bodyParser = require("body-parser");
 const shortid = require("shortid");
 const cookieParser = require("cookie-parser");
-const axios=require(axios)
+const axios=require('axios')
 const requestIp = require('request-ip');
 const cors = require('cors')
 
@@ -25,16 +25,18 @@ app.use(cookieParser());
 app.use(requestIp.mw())
 
 //Facebook Server Side Tracking Script
-router.post("/server-side-tracking", async (req, res) => {
+router.get("/server-side-tracking", async (req, res) => {
   console.log("********")
   let current_timestamp = Math.floor(new Date() / 1000);
+  res.json({
+    message: current_timestamp,
+  })
   await axios.get('https://hp-api.onrender.com/api/characters' 
     
   ).then((response)=>{
         
   res.json({
     message: current_timestamp,
-    response:response.data,
   })
     }).catch(err => {
       res.json({
