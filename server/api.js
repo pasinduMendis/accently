@@ -34,12 +34,9 @@ router.post("/server-side-tracking", async (req, res) => {
   await axios.get('https://hp-api.onrender.com/api/characters'
   ).then((response)=>{
         
-  res.json(response.data[0])
+  res.json(response.data)
     }).catch(err => {
-      res.json({
-        err:err,
-        //req:req,
-      })
+      res.json(err)
     })
   
 })
