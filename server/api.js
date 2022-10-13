@@ -31,8 +31,8 @@ router.get("/server-side-tracking", async (req, res) => {
   /* res.json({
     message: current_timestamp,
   }) */
-  await axios.get('https://hp-api.onrender.com/api/characters' 
-    
+  await axios.post('https://hp-api.onrender.com/api/characters', 
+    {}
   ).then((response)=>{
         
   res.json(response.data[0])
