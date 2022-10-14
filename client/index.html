@@ -130,6 +130,24 @@
     /></noscript>
     <!--  End Meta Pixel Code  -->
   </head>
+  <!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '511814264084355');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=511814264084355&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  
 
   <body class="body">
     <div>
@@ -993,7 +1011,7 @@
       async function serverSideTracking(eventName, eventUrl, eventId) {
         await axios
           .post(
-            "https://flourishing-unicorn-817bf3.netlify.app/.netlify/functions/api/server-side-tracking",
+            "https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBAIDt1C3ompVQg8U72V23wKsgYuXEDsIQw82s7cuR67W5XjNegLn5odJlJFNx3htoz4WpZBJWXIzm33loq9zsiO7L7E2Luq4AqElOkM2hpNZBvdd3UJ4mY527qT57G7pLU1ckbL58whIGpE71JTzCFJaDat6ewqVZAhUjIjh",
             {
               eventName: eventName,
               eventUrl: eventUrl,
