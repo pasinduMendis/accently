@@ -1011,19 +1011,30 @@
     <script>
       //Server Side Tracking Function
       async function serverSideTracking(eventName, eventUrl, eventId) {
-        await axios
-          .post(
-            "https://graph.facebook.com/v9.0/503294586998134/events?access_token=EAAUlXa7VgRIBAIDt1C3ompVQg8U72V23wKsgYuXEDsIQw82s7cuR67W5XjNegLn5odJlJFNx3htoz4WpZBJWXIzm33loq9zsiO7L7E2Luq4AqElOkM2hpNZBvdd3UJ4mY527qT57G7pLU1ckbL58whIGpE71JTzCFJaDat6ewqVZAhUjIjh",
-            {
-              eventName: eventName,
-              eventUrl: eventUrl,
-              eventId: eventId,
-            }
-          )
-          .then((response) => {
-            console.log(response.data);
-          })
-          .catch((err) => console.log(err));
+        await axios.post(
+    'https://graph.facebook.com/v9.0/511814264084355/events?access_token=EAAMSHZAfiTrMBAH9hCtdV8ndbbgtUMjL6ZAOehwHMrid5HSWitumWM4qRsc11PYALh2uZCh7Kjy5RpDvDxCObSpzKBCbS8Ou1fKz4gJWB9cOUtHKPW1q48q3vFGtmj9ipbw93b4BhpiixMC8tdB5v6QSk7ryt2DZCtQByXBcTW9uPEnivGZCAQR1NLy6JdzQZD',
+    {
+      "data": [
+          {
+              "event_name": "Index Page View",
+              "event_time": 1665550936,
+              "action_source": "website",
+              "event_id": "1",
+              "event_source_url": "https://www.accently.ai/",
+              "user_data": {
+                  "em": "5212712b4c6c5e4f8d424529b89c52ee70f27b79df12a3e77d9ac587d2d1e737",
+                  "ph": "44afb7aee4773c8d346b3b1f2bc747041b47e0d7bab92aa6bacb54b733a75591"
+              }
+          }
+      ]
+  }
+  
+).then((response)=>{
+  res.json(response.data)
+    }).catch(err => {
+      console.log(err)
+      res.json(err.message)
+    })
       }
       //Index Page Events
       window.onload = serverSideTracking("Index Page View", window.location.href, "1");
