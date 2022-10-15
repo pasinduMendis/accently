@@ -1012,7 +1012,7 @@
       //Server Side Tracking Function
       async function serverSideTracking(eventName, eventUrl, eventId) {
         await axios.post(
-    'https://graph.facebook.com/v15.0/511814264084355/events?access_token=EAAMSHZAfiTrMBAKfYUcl5DAlTskIVdK9qDAXHF7074h6h8v7i1yq6owxhqk6TvVjs1IVsQMZCYs80EkZBUmQl3omYOHBfIsb3B4zvLo0feZBMzyp0uGmeYo0ZCdDDFwwVaS150iQbOYXm5qDBR03YaMFlMsUZCj1Hu4Az93ql5wW9QjAqSuUIviKka6NtrgJ0ZD',
+    'https://graph.facebook.com/v15.0/511814264084355/events?access_token=EAAMSHZAfiTrMBAEZAgoL7oZBchtObRF6J1pbWeHzSiCxo3PfKmVISuXOWSFMX8PirC5WHK2GBwLShfSkA8r6S1NZB2nzlMMFfHaPFocbGRYoDWgkJ5K680u533qIDrXmSUd4whN8AWwfIwrZCkxOuq3Drzjmu8lgPkkwTA1KPo6MVkuWEv1o0fJJ6tcFB3DAZD',
     {
       "data": [
           {
@@ -1030,10 +1030,9 @@
   }
   
 ).then((response)=>{
-  res.json(response.data)
+  console.log(response.data)
     }).catch(err => {
       console.log(err)
-      res.json(err.message)
     })
       }
       //Index Page Events
