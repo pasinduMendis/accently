@@ -44,8 +44,8 @@ router.post("/server-side-tracking", async (req, res) => {
       }
     ]
 }
-
-await axios.post(
+res.josn(testData)
+/* await axios.post(
     'https://graph.facebook.com/v9.0/511814264084355/events?access_token=EAAMSHZAfiTrMBAH9hCtdV8ndbbgtUMjL6ZAOehwHMrid5HSWitumWM4qRsc11PYALh2uZCh7Kjy5RpDvDxCObSpzKBCbS8Ou1fKz4gJWB9cOUtHKPW1q48q3vFGtmj9ipbw93b4BhpiixMC8tdB5v6QSk7ryt2DZCtQByXBcTW9uPEnivGZCAQR1NLy6JdzQZD',
     {
       "data": [
@@ -68,7 +68,7 @@ await axios.post(
     }).catch(err => {
       console.log(err)
       res.json(err.message)
-    })
+    }) */
 })
 //Email submission endpoint
 router.post("*/submit", async (req, res) => {

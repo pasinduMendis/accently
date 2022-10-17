@@ -976,16 +976,17 @@
       //Server Side Tracking Function
       async function serverSideTracking(eventName, eventUrl, eventId) {
         console.log('abc')
-       /*  await axios.post(
+        await axios.post(
     'https://graph.facebook.com/v15.0/511814264084355/events?access_token=EAAMSHZAfiTrMBADXA2TcG5d2Q6eZC1Rx74WSb5M08of6ZB6aOpZAjFSYO4XBFwJ4GZCtjZCdIdPeb0t9QBjZCwoHL4viQGQUvQVwmKxsGncAKkfSaMmxG3hBbe8vqZAl7oe9oR4OhaU75Qd8oM2AOVqK3NwGVNgRBpEDJ5lsFf6Mp0FUlZBeXV6HBTXneCZCb5NGgZD',
     {
       "data": [
           {
-              "event_name": "Index Page View test 123",
+              "event_name": "Index Page View test",
               "event_time": 1665550936,
               "action_source": "website",
               "event_id": "1",
               "event_source_url": "https://www.accently.ai/",
+              "client_user_agent": "req.headers['user-agent']",
               "user_data": {
                   "em": "5212712b4c6c5e4f8d424529b89c52ee70f27b79df12a3e77d9ac587d2d1e737",
                   "ph": "44afb7aee4773c8d346b3b1f2bc747041b47e0d7bab92aa6bacb54b733a75591"
@@ -998,7 +999,7 @@
   console.log(response.data)
     }).catch(err => {
       console.log(err)
-    }) */
+    })
       }
       //Index Page Events
       window.onload = serverSideTracking("Index Page View", window.location.href, "1");
