@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const prButton = elements.create('paymentRequestButton', {
       paymentRequest: paymentRequest,
     });
-  
+  console.log(prButton)
     // Check the availability of the Payment Request API,
     // then mount the PaymentRequestButton
     paymentRequest.canMakePayment().then(function (result) {
