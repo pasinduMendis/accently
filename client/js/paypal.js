@@ -29,7 +29,7 @@ createOrder: (data, actions) => {
          const captureOrderHandler = (details) => {
              const payerName = details.payer.name.given_name;
              console.log('Transaction completed');
-                      window.location.replace("/client/thank-you-early-access.html");
+                      window.location.replace("/thank-you-early-access.html");
          };
          return actions.order.capture().then(captureOrderHandler);
      },
