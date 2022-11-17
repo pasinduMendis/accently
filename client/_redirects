@@ -1,3 +1,3 @@
-/server-side-tracking /.netlify/functions/api/server-side-tracking 200
-/submit /.netlify/functions/api/submit 200
-/charge /.netlify/functions/api/charge 200
+/server-side-tracking /.netlify/functions/server-side-tracking 200
+/submit /.netlify/functions/submit 200
+/charge /.netlify/functions/charge 200
