@@ -139,8 +139,7 @@
                   <div data-w-tab="Tab 2" class="w-tab-pane">
                     <div class="div-block-460">
                       <div class="div-block-459">
-                        <a href="#" class="button-5 w-button">pay with</a>
-                        <a href="#" class="button-5 _2 w-button">pay LATER</a>
+                        <div id="paypal-button-container"></div>
                       </div>
                     </div>
                   </div>
@@ -195,6 +194,8 @@
     crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
   <script src="js/google-pay.js" defer></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=AdRzLXG4lPFGlXTGv1In70YbQVjTnoGIIda4kWeMbcoJkZQECvK1i2GJLh4I6fSscGK-ilxRqOgeWp2E&currency=USD&intent=capture&enable-funding=paylater" data-sdk-integration-source="integrationbuilder"></script>
+  <script src="js/paypal.js" defer></script>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
@@ -242,8 +243,8 @@
     applePay.addEventListener("click", function () {
         document.getElementById("eventSix").style.display="none"
     });
-    cardPay.addEventListener("click", function () {
-      gPay.getElementById("eventSix").style.display="none"
+    gPay.addEventListener("click", function () {
+      document.getElementById("eventSix").style.display="none"
     });
     
   </script>
@@ -305,12 +306,17 @@
         return;
       }else{
         var errorElement = document.getElementById('card-errors');
+        window.location.replace("/client/thank-you-early-access.html");
         errorElement.textContent="SUCCESS"
         errorElement.style.display = 'block';
       } 
         })
-        .catch((err) => console.log("Failed: " + err));
-
+        .catch((err) =>{
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent="Failed: " + err
+          console.log("Failed: " + err)
+        } );
+        
     }); 
     
     function stripeTokenHandler(token) {
