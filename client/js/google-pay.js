@@ -38,31 +38,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     paymentRequest.on('paymentmethod', async (e) => {
       // Make a call to the server to create a new
       // payment intent and store its client_secret.
-      const {error: backendError, clientSecret} = await fetch(
-        '/create-payment-intent',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            currency: 'usd',
-            paymentMethodType: 'card',
-          }),
-        }
-      ).then((r) => r.json());
   
-      if (backendError) {
-        console.log(backendError.message);
-        e.complete('fail');
-        return;
-      }
-  
+      await axios
+        .post(
+          "/.netlify/functions/payment-card",
+          {
+            amount:"10000",
+          }
+        )
+        .then(async (response) => {
+          //console.log(response)
       console.log(`Client secret returned.`);
   
       // Confirm the PaymentIntent without handling potential next actions (yet).
       let {error, paymentIntent} = await stripe.confirmCardPayment(
-        clientSecret,
+        response.data.clientSecret,
         {
           payment_method: e.paymentMethod.id,
         },
@@ -77,12 +67,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Report to the browser that the payment failed, prompting it to
         // re-show the payment interface, or show an error message and close
         // the payment interface.
-        e.complete('fail');
+        console.log('fail');
         return;
       }
       // Report to the browser that the confirmation was successful, prompting
       // it to close the browser payment method collection interface.
-      e.complete('success');
+      console.log('success');
   
       // Check if the PaymentIntent requires any actions and if so let Stripe.js
       // handle the flow. If using an API version older than "2019-02-11" instead
@@ -102,4 +92,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       console.log(`Payment ${paymentIntent.status}: ${paymentIntent.id}`);
     });
-  });
+  })
+})
