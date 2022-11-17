@@ -119,13 +119,13 @@
               <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100"
                 class="tabs-2 w-tabs">
                 <div class="tabs-menu-2 w-tab-menu">
-                  <a data-w-tab="Tab 1" class="tab-link-tab-2 w-inline-block w-tab-link w--current"><img loading="lazy"
+                  <a data-w-tab="Tab 1" id="select-card" class="tab-link-tab-2 w-inline-block w-tab-link w--current"><img loading="lazy"
                       src="images/image-6.svg" alt="" class="image-121"></a>
-                  <a data-w-tab="Tab 2" class="tab-link-tab-2 w-inline-block w-tab-link"><img loading="lazy"
+                  <a data-w-tab="Tab 2" id="select-pay-pal" class="tab-link-tab-2 w-inline-block w-tab-link"><img loading="lazy"
                       src="images/image-2.png" alt="" class="image-121 _2"></a>
-                  <a data-w-tab="Tab 3" class="tab-link-tab-2 w-inline-block w-tab-link"><img loading="lazy"
+                  <a data-w-tab="Tab 3" id="select-apple" class="tab-link-tab-2 w-inline-block w-tab-link"><img loading="lazy"
                       src="images/Group-1000002356.svg" alt="" class="image-121 _3"></a>
-                  <a data-w-tab="Tab 4" class="tab-link-tab-2 w-inline-block w-tab-link"><img loading="lazy"
+                  <a data-w-tab="Tab 4" id="select-gpay" class="tab-link-tab-2 w-inline-block w-tab-link"><img loading="lazy"
                       src="images/image-8.svg" alt="" class="image-121 _3"></a>
                 </div>
                 <div class="tabs-content-2 w-tab-content">
@@ -151,7 +151,7 @@
                       </div>
                     </div>
                   </div>
-                  <div data-w-tab="Tab 4" class="w-tab-pane">
+                  <div data-w-tab="Tab 4" class="w-tab-pane" style="width: 50%;border-radius: 100px;">
                     <div id="gpay-element"></div>
                   </div>
                 </div>
@@ -225,8 +225,27 @@
     eventSix.addEventListener("click", function () {
       /*  serverSideTracking("Early Access Page Submit Button Click", window.location.href, "6");
        fbq('trackCustom', 'Early Access Page Submit Button Click', { eventID: '6' }); */
-      
-    });      
+    });
+    
+    //disdpaly submit button
+    var cardPay = document.getElementById("select-card");
+       var payPalPay = document.getElementById("select-pay-pal");
+       var applePay = document.getElementById("select-apple");
+       var gPay = document.getElementById("select-gpay");
+
+       cardPay.addEventListener("click", function () {
+        document.getElementById("eventSix").style.display="block"
+    });
+    payPalPay.addEventListener("click", function () {
+        document.getElementById("eventSix").style.display="none"
+    });
+    applePay.addEventListener("click", function () {
+        document.getElementById("eventSix").style.display="none"
+    });
+    cardPay.addEventListener("click", function () {
+      gPay.getElementById("eventSix").style.display="none"
+    });
+    
   </script>
   <script>
     var stripe = Stripe('pk_test_51Lrnh3Hn5HPNBT2DQtdgvnH7HCOm8qYTOyYDrzrIpJhAHdgeeC5n4i6qLFy2JibSXGNfjT5c419dHbVNyVZxBAY700PxxUxtgz');
@@ -247,17 +266,6 @@
     var form = document.getElementById('payment-form');
     form.addEventListener('submit', async function (event) {
       event.preventDefault();
-      /* stripe.createToken(card).then(function (result) {
-        if (result.error) {
-          // Inform the customer that there was an error.
-          var errorElement = document.getElementById('card-errors');
-          errorElement.textContent = result.error.message;
-          errorElement.style.display = 'block';
-        } else {
-          // Send the token to your server.
-          stripeTokenHandler(result.token);
-        }
-      }); */
       var email = document.getElementById('email-4').value;
       var name = document.getElementById('name-3').value;
       const billingDetails = {

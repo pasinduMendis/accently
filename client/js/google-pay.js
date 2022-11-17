@@ -5,13 +5,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       apiVersion: '2020-08-27',
     });
   
+    var email = document.getElementById('email-4').value;
+      var name = document.getElementById('name-3').value;
+      const billingDetails = {
+      name: name,
+      email: email,
+    };
     // 2. Create a payment request object
     var paymentRequest = stripe.paymentRequest({
       country: 'US',
       currency: 'usd',
       total: {
-        label: 'Demo total',
-        amount: 100,
+        label: 'total',
+        amount: 10000,
       },
       requestPayerName: true,
       requestPayerEmail: true,
@@ -43,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         .post(
           "/.netlify/functions/payment-card",
           {
-            amount:"10000",
+            amount:"1000000",
           }
         )
         .then(async (response) => {
