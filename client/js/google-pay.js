@@ -58,13 +58,18 @@ document.addEventListener('DOMContentLoaded', async () => {
   
       await axios
         .post(
-          "/.netlify/functions/payment-card",
+          "/.netlify/functions/buttonPay",
           {
-            amount:"10000",
+            currency: 'usd',
+            paymentMethodType: 'card',
           }
         )
         .then(async (response) => {
           //console.log(response)
+          if (!response.data.clientSecret) {
+            console.log('fail');
+            return;
+          }
       console.log(`Client secret returned.`);
   
       // Confirm the PaymentIntent without handling potential next actions (yet).
