@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
         )
         .then(async (response) => {
-          //console.log(response)
+          console.log(response)
           if (!response.data.clientSecret) {
             console.log('fail');
             return;
