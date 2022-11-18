@@ -28,17 +28,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     const prButton = elements.create('paymentRequestButton', {
       paymentRequest: paymentRequest,
     });
-  console.log(prButton)
     // Check the availability of the Payment Request API,
     // then mount the PaymentRequestButton
     paymentRequest.canMakePayment().then(function (result) {
       console.log(result)
-      if (result) {
+      if (result?.googlePay) {
+        document.getElementById('applePay-element').innerHTML = 'not availble';
+        document.getElementById('applePay-element').style.color = 'red';
         prButton.mount('#gpay-element');
-      } else {
+        console.log('Apple Pay support not found. Check the pre-requisites above and ensure you are testing in a supported browser.');
+      } else if(result?.applePay){
         document.getElementById('gpay-element').innerHTML = 'not availble';
         document.getElementById('gpay-element').style.color = 'red';
+        prButton.mount('#applePay-element');
         console.log('Google Pay support not found. Check the pre-requisites above and ensure you are testing in a supported browser.');
+      }
+      else {
+        document.getElementById('gpay-element').innerHTML = 'not availble';
+        document.getElementById('gpay-element').style.color = 'red';
+        document.getElementById('applePay-element').innerHTML = 'not availble';
+        document.getElementById('applePay-element').style.color = 'red';
+        console.log('Google Pay and Apple Pay support not found. Check the pre-requisites above and ensure you are testing in a supported browser.');
       }
     });
   
