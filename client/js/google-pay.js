@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Check the availability of the Payment Request API,
     // then mount the PaymentRequestButton
     paymentRequest.canMakePayment().then(function (result) {
+      console.log(result)
       if (result) {
         prButton.mount('#gpay-element');
       } else {
