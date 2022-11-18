@@ -33,20 +33,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     paymentRequest.canMakePayment().then(function (result) {
       console.log(result)
       if (result?.googlePay) {
-        document.getElementById('applePay-element').innerHTML = 'not availble';
+        document.getElementById('applePay-element').innerHTML = 'Apple pay is not supported on your current environment';
         document.getElementById('applePay-element').style.color = 'red';
         prButton.mount('#gpay-element');
         console.log('Apple Pay support not found. Check the pre-requisites above and ensure you are testing in a supported browser.');
       } else if(result?.applePay){
-        document.getElementById('gpay-element').innerHTML = 'not availble';
+        document.getElementById('gpay-element').innerHTML = 'Google pay is not supported on your current environment';
         document.getElementById('gpay-element').style.color = 'red';
         prButton.mount('#applePay-element');
         console.log('Google Pay support not found. Check the pre-requisites above and ensure you are testing in a supported browser.');
       }
       else {
-        document.getElementById('gpay-element').innerHTML = 'not availble';
+        document.getElementById('gpay-element').innerHTML = 'Google pay is not supported on your current environment';
         document.getElementById('gpay-element').style.color = 'red';
-        document.getElementById('applePay-element').innerHTML = 'not availble';
+        document.getElementById('applePay-element').innerHTML = 'Apple pay is not supported on your current environment';
         document.getElementById('applePay-element').style.color = 'red';
         console.log('Google Pay and Apple Pay support not found. Check the pre-requisites above and ensure you are testing in a supported browser.');
       }
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         .post(
           "/.netlify/functions/payment-card",
           {
-            amount:"1000000",
+            amount:"10000",
           }
         )
         .then(async (response) => {
