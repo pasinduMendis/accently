@@ -2,6 +2,13 @@ exports.handler = async (event, context) => {
     
     if (event.httpMethod === "POST") {
     const {paymentMethodType, currency,paymentMethodOptions} = JSON.parse(event.body);
+        return {
+        statusCode: 200,
+        body: JSON.stringify({
+            clientSecret: paymentMethodType,
+            nextAction: currency,
+          }),
+      };
   
     // Each payment method type has support for different currencies. In order to
     // support many payment method types and several currencies, this server
