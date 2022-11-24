@@ -1,7 +1,4 @@
-import { loadScript } from "@paypal/paypal-js";
-import { AdRuleExecutionSpec } from "facebook-nodejs-business-sdk";
-loadScript({ "client-id": YOUR_CLIENT_ID })
-.then((paypal) => {
+
     const paypalButtonsComponent = paypal.Buttons({
         // optional styling for buttons
         // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
@@ -46,8 +43,5 @@ loadScript({ "client-id": YOUR_CLIENT_ID })
                 var errorElement = document.getElementById('card-errors');
                 errorElement.textContent='PayPal Buttons failed to render'
             });
-})
-.catch((err) => {
-    console.error("failed to load the PayPal JS SDK script", err);
-});
+
 
