@@ -16,7 +16,7 @@
             // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
              const createOrderPayload = await axios.get("/.netlify/functions/paypal-charge")
             console.log(createOrderPayload)
-            return actions.order.create(createOrderPayload);
+            return actions.order.create(createOrderPayload.data.createOrderPayload);
                 
              },
              // finalize the transaction
