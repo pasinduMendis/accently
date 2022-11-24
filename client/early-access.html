@@ -508,7 +508,7 @@
         }
 
         await axios
-          .post("/stripe-card-charge", {})
+          .post("/.netlify/functions/stripe-card-charge", {})
           .then(async (response) => {
             //console.log(response)
             const { error } = await stripe.confirmCardPayment(
@@ -608,7 +608,7 @@
           // payment intent and store its client_secret.
 
           await axios
-            .post("/stripe-button-charge", {
+            .post("/.netlify/functions/stripe-button-charge", {
               currency: "usd",
               paymentMethodType: "card",
             })
