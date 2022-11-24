@@ -14,7 +14,7 @@
         createOrder: async (data, actions) => {
             // pass in any options from the v2 orders create call:
             // https://developer.paypal.com/api/orders/v2/#orders-create-request-body
-            const createOrderPayload=await axios.get("/.netlify/functions/payment-card");
+            const {createOrderPayload}=await axios.get("/.netlify/functions/payment-card");
             console.log(createOrderPayload);
              return actions.order.create(createOrderPayload);
                 
