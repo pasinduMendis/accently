@@ -1,6 +1,5 @@
-//paypal
 exports.handler = async (event, context) => {
-    try {
+
     if (event.httpMethod === "GET") {
         const createOrderPayload = {
             purchase_units: [
@@ -22,14 +21,4 @@ exports.handler = async (event, context) => {
             body: JSON.stringify({ message: "METHOD NOT ALLOWED" }),
         };
     }
-} catch (err) {
-
-    console.log("11");
-    console.log("Error: " + err);
-    return {
-      statusCode: 400,
-      body: err,
-    };
-
-  }
 };
