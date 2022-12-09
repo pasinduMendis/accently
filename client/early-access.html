@@ -396,12 +396,6 @@
         }
       );
 
-      var email = document.getElementById("email-4").value;
-      var name = document.getElementById("name-3").value;
-      const billingDetails = {
-        name: name,
-        email: email,
-      };
       // 2. Create a payment request object
       var paymentRequest = stripe.paymentRequest({
         country: "US",
@@ -422,7 +416,7 @@
       // Check the availability of the Payment Request API,
       // then mount the PaymentRequestButton
       paymentRequest.canMakePayment().then(function (result) {
-        //console.log(result)
+        console.log(result)
         if (result?.googlePay) {
           document.getElementById("applePay-element").innerHTML =
             "Apple pay is not supported on your current environment";
