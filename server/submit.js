@@ -5,15 +5,16 @@ const shortid = require("shortid");
 const cookie = require('cookie');
 
 exports.handler = async (event, context) => {
-  console.log(event.body)
+  //console.log(event.body)
 
   const array = event.body.split("email=");
   const email = decodeURIComponent(array[1]);
-  console.log(email)
+  //console.log(email)
   const myCookie = cookie.serialize('emailHash', email);
 
   try {
-    mongoose.connect(process.env.MONGO_URI);
+    mongoose.connect(process.env.MONGO_URI,{ useNewUrlParser: true,
+      useUnifiedTopology: true, useFindAndModify: false});
 
     const existingUser = await User.findOne({ email: email });
 
