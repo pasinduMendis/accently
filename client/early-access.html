@@ -161,11 +161,7 @@
           </div>
           <div class="form-block w-form">
             <form id="payment-form" name="email-form" data-name="Email Form" action="/charge" method="post">
-              <label for="name-3" class="field-label">Name*</label><input type="text" class="text-field w-input"
-                maxlength="256" name="name-3" data-name="Name 3" placeholder="Enter your full name" id="name-3"
-                required="" /><label for="email-4" class="field-label">Email Address*</label><input type="email"
-                class="text-field w-input" maxlength="256" name="email-4" data-name="Email 4"
-                placeholder="Enter your email address" id="email-4" required="" /><label for="email-5"
+              <label for="email-5"
                 class="field-label">Payment Method *</label>
               <div data-current="Tab 1" data-easing="ease" data-duration-in="300" data-duration-out="100"
                 class="tabs-2 w-tabs">
@@ -340,18 +336,9 @@
       form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        var email = document.getElementById("email-4").value; //Note to self. Make sure this ID is consistent with Webflow
-        var name = document.getElementById("name-3").value; //Note to self. Make sure this ID is consistent with Webflow
-
-        const billingDetails = {
-          name: name,
-          email: email,
-        };
-
         const charge = await stripe.createPaymentMethod({
           type: "card",
           card: cardElement,
-          billing_details: billingDetails,
         });
 
         if (charge.error) {
