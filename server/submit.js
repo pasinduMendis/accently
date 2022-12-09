@@ -15,6 +15,9 @@ exports.handler = async (event, context) => {
 
     const existingUser = await User.findOne({ email: email });
 
+    if (existingUser) {
+    }
+
     if (!existingUser) {
       const shortIdVariable = shortid.generate();
 
