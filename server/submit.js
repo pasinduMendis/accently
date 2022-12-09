@@ -9,6 +9,7 @@ exports.handler = async (event, context) => {
 
   const array = event.body.split("email=");
   const email = decodeURIComponent(array[1]);
+  console.log(email)
   const myCookie = cookie.serialize('emailHash', email);
 
   try {
@@ -40,7 +41,7 @@ exports.handler = async (event, context) => {
     };
 
   } catch (err) {
-
+    console.log("err")
     return {
       statusCode: 400,
       body: err,
