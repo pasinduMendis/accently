@@ -416,7 +416,7 @@
       // Check the availability of the Payment Request API,
       // then mount the PaymentRequestButton
       paymentRequest.canMakePayment().then(function (result) {
-        console.log(result)
+        //console.log(result)
         if (result?.googlePay) {
           document.getElementById("applePay-element").innerHTML =
             "Apple pay is not supported on your current environment";
