@@ -444,21 +444,23 @@ fbq('trackCustom', 'Index Page View', { eventID: '1' });
 
 
 
+
+
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="https://hypertarget.boomer-baker.workers.dev/"></script>;
-<script type="text/javascript">  
-async function onloadFunction() {
-  console.log("chanul")
-  HYPERSNIPPET.initURL(["b2469c68-6a90-41bd-a3b8-50396f07a971","f9420e48-dbbc-472d-af41-942e252445a2"]);
-}      
-    window.onload = onloadFunction()
+<script type="text/javascript">        
+function onloadFunction(){
+        console.log("1")      
+        HYPERSNIPPET.initURL(["e24f6d1c-9bdc-4c17-b6f9-4683fd3d50da","431f9088-d1d5-4d0a-885f-f85d566126ff"]);
+    }
+    window.onload = function(){ onloadFunction()}
     document.onclick = function (event) {
         HYPERSNIPPET.analyzer(event,sessionStorage.getItem("key"),isLoadedForClick);
+console.log('click')
     }
     window.addEventListener("beforeunload", function (e) {
         e.preventDefault();
     })
 </script>
-
 </body>
 </html>
