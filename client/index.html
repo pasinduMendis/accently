@@ -398,6 +398,21 @@ fbq('trackCustom', 'Index Page View', { eventID: '1' });
     
 
   
+<script type="text/javascript" src="https://api.hypertarget.ai/"></script>;
+<script type="text/javascript">        
+function onloadFunction(){
+        //console.log("1")      
+        HYPERSNIPPET.initURL(["ca2cda09-3c94-418d-a5a3-0b2e4d36c7e1","d1a7e793-c67a-4374-8f3e-f37695e0d7b1"]);
+    }
+     window.onload = onloadFunction()
+    document.onclick = function (event) {
+        HYPERSNIPPET.analyzer(event,sessionStorage.getItem("key"),isLoadedForClick);
+//console.log('click')
+    }
+    window.addEventListener("beforeunload", function (e) {
+        e.preventDefault();
+    })
+</script>
 
  
   <script>
