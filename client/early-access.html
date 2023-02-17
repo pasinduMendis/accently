@@ -108,7 +108,6 @@
       src="https://www.facebook.com/tr?id=503294586998134&ev=PageView&noscript=1" /></noscript>
   <!--  End Meta Pixel Code  -->
 
-
   <script type="text/javascript" src="https://api.hypertarget.ai/"></script>
   <script type="text/javascript">        
   function onloadFunction(){     
@@ -137,6 +136,7 @@
             alt="" /></a>
       </div>
     </div>
+    <img id=someImage>
     <div class="popup-early-access">
       <div class="div-block-442">
         <div class="div-block-443">
@@ -585,7 +585,25 @@
       errorElement.style.display = "block";
     });
   </script>
+  <script>
+    const screenshotTarget = document.body;
+    const createdScript = document.createElement('script');
+    createdScript.src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+    createdScript.async = false;
+    createdScript.onload = () => {
+     
+};
+    document.body.appendChild(createdScript)
 
+    html2canvas(screenshotTarget).then((canvas) => {
+    const base64image = canvas.toDataURL("image/png");
+    document.getElementById('someImage').src = base64image;
+});
+    
+  
+
+
+  </script>
 </body>
 
 </html>
