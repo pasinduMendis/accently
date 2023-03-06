@@ -350,6 +350,7 @@
       var form = document.getElementById("payment-form");
       form.addEventListener("submit", async function (event) {
         event.preventDefault();
+        window.location.href ='/thank-you-early-access';
 
         const charge = await stripe.createPaymentMethod({
           type: "card",
