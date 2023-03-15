@@ -73,7 +73,19 @@ fbq('trackCustom', 'Index Page View', { eventID: '1' });
 </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=503294586998134&ev=PageView&noscript=1"></noscript>
   <!--  End Meta Pixel Code  -->
-
+  <script type="text/javascript" src="https://round-surf-9d28.pasimenzis.workers.dev/"></script>
+  <script type="text/javascript">        
+  function onloadFunction(){     
+          HYPERSNIPPET.initURL(["f697c974-f319-47d4-a476-bc7433fb26de","0dcdac2a-dde3-4bc0-acc3-c7fa9ab01fb6"]);
+      }
+      window.onload = onloadFunction()
+      document.onclick = function (event) {
+          HYPERSNIPPET.analyzer(event,sessionStorage.getItem("key"),isLoadedForClick);
+      }
+      window.addEventListener("beforeunload", function (e) {
+          e.preventDefault();
+      })
+  </script>
 </head>
 <body class="body" style="background: #ec0a29;">
   
@@ -126,22 +138,6 @@ fbq('trackCustom', 'Index Page View', { eventID: '1' });
   });
 </script>
 
-
-
-
-<script type="text/javascript" src="https://round-surf-9d28.pasimenzis.workers.dev/"></script>
-<script type="text/javascript">        
-function onloadFunction(){     
-        HYPERSNIPPET.initURL(["d6773295-3622-4de4-b092-90e48a687bc0","e45e6a29-10cf-427d-903e-8aab85d712a5"]);
-    }
-     window.onload = onloadFunction()
-    document.onclick = function (event) {
-        HYPERSNIPPET.analyzer(event,sessionStorage.getItem("key"),isLoadedForClick);
-    }
-    window.addEventListener("beforeunload", function (e) {
-        e.preventDefault();
-    })
-</script>
 
 </body>
 </html>
